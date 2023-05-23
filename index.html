@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Heart with "Tôi thích em"</title>
+	<style>
+		body {
+			background-color: #f8f8f8;
+		}
+
+		.heart {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 100px;
+			height: 90px;
+      z-index: 10;
+		}
+
+		.heart:before,
+		.heart:after {
+			position: absolute;
+			content: "";
+			left: 50px;
+			top: 0;
+			width: 50px;
+			height: 80px;
+			background-color: red;
+			border-radius: 50px 50px 0 0;
+			transform: rotate(-45deg);
+			transform-origin: 0 100%;
+      z-index: 5;
+		}
+
+		.heart:after {
+			left: 0;
+			transform: rotate(45deg);
+			transform-origin: 100% 100%;
+		}
+
+		.inner-heart {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 60px;
+			height: 50px;
+			background-color: #f8f8f8;
+			border-radius: 25px;
+			box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+			text-align: center;
+			line-height: 50px;
+			font-weight: bold;
+			font-size: 14px;
+      z-index: 1;
+		}
+	</style>
+</head>
+<body>
+	<div class="heart">
+		<div class="inner-heart">
+		</div>
+	</div>
+	<script>
+		const heart = document.querySelector('.heart');
+		const colors = ['#ff7b7b', '#ffb6b6', '#fc8d8d', '#ff4e4e', '#ff8787'];
+
+		setInterval(() => {
+			const innerHeart = document.createElement('div');
+			innerHeart.classList.add('inner-heart');
+			innerHeart.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+			innerHeart.innerHTML = 'Tôi Thích em';
+
+			const size = Math.floor(Math.random() * 30) + 20;
+			const x = Math.floor(Math.random() * 200) - 100;
+			const y = Math.floor(Math.random() * 200) - 100;
+			innerHeart.style.width = size + 'px';
+			innerHeart.style.height = size / 1.2 + 'px';
+			innerHeart.style.left = heart.offsetWidth / 2 - size / 2 + x + 'px';
+			innerHeart.style.top = heart.offsetHeight / 2 - size / 2 + y + 'px';
+
+			heart.appendChild(innerHeart);
+
+			setTimeout(() => {
+				innerHeart.remove();
+			}, 2000);
+		}, 200);
+	</script>
+</body>
+</html>
