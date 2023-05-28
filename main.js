@@ -47,3 +47,8 @@ const tinh_diem = document.getElementById('submit');
     localStorage.setItem('causai', causai);
     localStorage.setItem('userAnswers', JSON.stringify(userAnswers));
 });
+
+//refesh trở về đầu trang.
+window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+}
