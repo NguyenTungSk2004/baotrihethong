@@ -25,6 +25,7 @@ questions.forEach(function(question)  {
                     user_quesion: questionNumber,
                     user_value: correct
                 }
+		    kt = False;
             }
         }else{
             if(kt == true){
