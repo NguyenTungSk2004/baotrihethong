@@ -6,7 +6,7 @@ window.onload = function() {
 
     document.querySelector(".socaudung").textContent = `Số câu trả lời đúng: ${score}`;
     document.querySelector(".socausai").textContent = `Số câu trả lời sai: ${score1}`;
-    document.querySelector(".chuatraloi").textContent = `Số câu trả lời sai: ${360+90-score-score1}`;
+    document.querySelector(".chuatraloi").textContent = `Số câu chưa làm: ${360+90-score-score1}`;
 
     questions.forEach(function(question)  {
 		const index = question.querySelector('h3').textContent.split(' ')[1];
